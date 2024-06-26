@@ -1,0 +1,218 @@
+<div class="container-edit" *ngIf="product" style="background-color: #edf5fc;">
+    <div class="mb-4 " style="background-color: #D4D3Cf!important; border: none; border-radius: 0;">
+      <div class="col-12">
+        <div class="px-4 py-2">
+          <div class=" border-none">
+            <div class="row">
+              <div style="color: #29333F" class="col-2 fs-4"><strong>QSR</strong></div>
+              <div style="color: #29333F"  class="col-2 fs-4"><strong>Sales Channel</strong></div>
+              <div style="color: #29333F"  class="col-2 fs-4"><strong>Country</strong></div>
+              <div style="color: #29333F"  class="col-2 fs-4"><strong>State</strong></div>
+              <div style="color: #29333F"  class="col-2 fs-4"><strong>City</strong></div>
+              <div style="color: #29333F"  class="col-2 fs-4"><strong>Store</strong></div>
+            </div>
+            <div class="row">
+              <div style="color: #29333F"  class="col-2">{{ product?.qsr }}</div>
+              <div style="color: #29333F"  class="col-2">{{ product?.sales_channel }}</div>
+              <div style="color: #29333F"  class="col-2">{{ product?.country }}</div>
+              <div style="color: #29333F"  class="col-2">{{ product?.state }}</div>
+              <div  style="color: #29333F"  class="col-2">{{ product?.city }}</div>
+              <div style="color: #29333F"  class="col-2">{{ product?.store }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row container-lg mx-auto bg-white p-2">
+      <div class="col-12">
+        <table class="table border-black">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Priority</th>
+              <th>Item</th>
+              <th>Image</th>
+              <th>Recommendation</th>
+              <th>Performance</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let category of categories">
+              <tr style="background-color: #2D4E6F; border: 1px solid #2D4C6B; color: #FFFFFF;">
+                <td style="background-color: #2D4E6F; border: 1px solid #2D4C6B; color: #FFFFFF;">{{ category.name }}</td>
+                <td style="background-color: #2D4E6F; border: 1px solid #2D4C6B; color: #FFFFFF;">{{ category.priority }}</td>
+                <td style="background-color: #2D4E6F; border: 1px solid #2D4C6B; color: #FFFFFF;"></td>
+                <td style="background-color: #2D4E6F; border: 1px solid #2D4C6B; color: #FFFFFF;"></td>
+                <td style="background-color: #2D4E6F; border: 1px solid #2D4C6B; color: #FFFFFF;"></td>
+                <td style="background-color: #2D4E6F; border: 1px solid #2D4C6B; color: #FFFFFF;"></td>
+                <td style="background-color: #2D4E6F; border: 1px solid #2D4C6B; color: #FFFFFF;">
+                    <input type="radio" name="selectedCategory" (change)="setSelectedCategory(category)" />
+                </td>
+              </tr>
+              <tr *ngFor="let item of category.items">
+                <td></td>
+                <td>{{ item.priority }}</td>
+                <td>{{ item.item }}</td>
+                
+                <td><img [src]="item.image" alt="Item Image" width="50"></td>
+                <td>{{ item.recommendation ? 'Yes' : 'No' }}</td>
+                <td>
+                  <!-- <div class="progress">
+                    <div class="progress-bar" role="progressbar" [style.width.%]="item.priority * 10"></div>
+                  </div> -->
+                  <div></div>
+                </td>
+                <td>
+                    <input type="radio" name="selectedCategory" (change)="setSelectedCategory(category, item)" />
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="py-2 d-flex justify-content-end">
+        <div class="ml-auto d-flex">
+            <div class="mx-2 custom-button">
+                <button class="custom-button" (click)="openPriorityModal()">Change Priority</button>
+                
+              </div>
+              <div class="mx-2 custom-button">
+                <button class="custom-button" (click)="openEditModal()">Edit</button>
+              </div>
+          <div class="mx-2 custom-button">
+            Add Category
+          </div>
+          <div class="mx-2 custom-button">
+            Add
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Priority Change Modal -->
+    <div class="modal fade" *ngIf="selectedCategory" id="priorityModal" tabindex="-1" aria-labelledby="priorityModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title color-primary" id="priorityModalLabel">{{ selectedItem?.item || selectedCategory.name }}</h5>
+
+
+            <button type="button" class="btn-close" (click)="closePriorityModal()"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="newPriority" class="form-label">New Priority:</label>
+              <input type="number" id="newPriority" [(ngModel)]="newPriority" class="form-control" min="1" max="10">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-secondary" (click)="closePriorityModal()">Cancel</button> -->
+            <button type="button" class="custom-button" (click)="savePriority()">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fade edit-modal" aria-hidden="true" id="editModal" *ngIf="selectedItem">
+        <div class="mb-4" style="background-color: #f1f2f3; border: none; border-radius: 0;">
+            <div class="col-12">
+                <div class="px-4 py-2">
+                    <div class="border-none">
+                        <div class="row">
+                            <div class="col-2 fs-4"><strong>QSR</strong></div>
+                            <div class="col-2 fs-4"><strong>Sales Channel</strong></div>
+                            <div class="col-2 fs-4"><strong>Country</strong></div>
+                            <div class="col-2 fs-4"><strong>State</strong></div>
+                            <div class="col-2 fs-4"><strong>City</strong></div>
+                            <div class="col-2 fs-4"><strong>Store</strong></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2">{{ product?.qsr }}</div>
+                            <div class="col-2">{{ product?.sales_channel }}</div>
+                            <div class="col-2">{{ product?.country }}</div>
+                            <div class="col-2">{{ product?.state }}</div>
+                            <div class="col-2">{{ product?.city }}</div>
+                            <div class="col-2">{{ product?.store }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="container-sm border p-4">
+            <!-- Header -->
+            <div class="row text-center mb-4">
+              <div class="col"></div>
+                <div class="col fw-bold fs-3">PepsiCo</div>
+                <div class="col fw-bold fs-3">QSR</div>
+            </div>
+
+            <!-- Image Section -->
+            <div class="custom-edit-container" style="background: white;">
+              <div class="custom-edit-section" style="background: white;">
+                <div class="row fw-bold py-4">Image</div>
+                <div class="row fw-bold py-4">Item Description</div>
+                <div class="row fw-bold py-4">Title</div>
+              </div>
+
+              <div class="custom-edit-section">
+                      <div class="section-content py-4">
+                          <img [src]="selectedItem?.image" alt="PepsiCo" class="image-box">
+                      </div>
+
+                      <!--edit-->
+                      <div>
+                        <div class="section-content py-4">{{ selectedItem?.description }}</div>
+                      </div>
+                      <div class="section-content py-4">{{ selectedItem?.item }}</div>
+
+                     
+                  </div>
+
+                  <div class="custom-edit-section">
+                     <!--edit-->
+                     <div class="section-edit d-flex py-4 items-center">
+                        <input type="checkbox" class="form-check-input me-2">
+                        <img [src]="selectedItem?.image" alt="PepsiCo" class="image-box">
+                      </div>
+
+                      <div class="section-edit d-flex py-4 items-center">
+                        <input type="checkbox" class="form-check-input me-2">
+                        <input type="text" class="form-control" [(ngModel)]="selectedItem.description" [placeholder]="selectedItem?.description">
+                      </div>
+                      <div class="section-edit d-flex py-4 items-center">
+                        <input type="checkbox" class="form-check-input me-2">
+                        <input type="text" class="form-control" [(ngModel)]="selectedItem.item" [placeholder]="selectedItem?.item">
+                    </div>
+
+
+                  </div>
+
+                      
+                      
+                  </div>
+          
+                  <div class=" ml-auto d-flex justify-content-end mt-3">
+                    <button class="custom-button mx-2" (click)="submitChanges()">Submit</button>
+                    <button class="custom-button" (click)="closeEditModal()">Replace</button>
+                </div>
+
+            </div>
+
+            <!-- Buttons -->
+            
+
+    </div>
+    
+
+
+
+    <!---change item modal-->
+
+    
+      
+  </div>
+  

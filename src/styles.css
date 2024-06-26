@@ -1,1 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
+
+.pointer {
+    cursor: pointer;
+    
+}
+
+
+.custom-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path fill="white" d="M480-360 280-560h400L480-360Z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 2px top 50%;
+}
+
+/* Optional: Style the select box differently when focused for accessibility */
+.custom-select:focus {
+    border: none;
+}
+
+.container-edit {
+    position: fixed;
+    top: 0;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.custom-button {
+    background-color: #ec8f15;
+    width: 10vw;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5vw 0;
+    cursor: pointer;
+    border: none;
+}
+
+.custom-button:hover {
+    background-color: #ab6305;
+}
+
+
+

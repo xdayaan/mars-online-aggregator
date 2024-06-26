@@ -1,0 +1,38 @@
+<div class="p-4 container-lg p-2 bg-white">
+    <div class="table-responsive">
+      <table class="table border-black">
+        <thead class="bg-gray-100">
+          <tr style="background-color: #2D4E6F;">
+            <th style="background-color: #2D4E6F; border: 1px solid #2D4C6B; color: #FFFFFF;" class="px-4 py-2 text-start">QSR</th>
+            <th style="background-color: #2D4E6F; border: 1px solid #2D4C6B; color: #FFFFFF;" class="px-4 py-2 text-start">Sales Channel</th>
+            <th style="background-color: #2D4E6F; border: 1px solid #2D4C6B; color: #FFFFFF;" class="px-4 py-2 text-start">Country</th>
+            <th style="background-color: #2D4E6F; border: 1px solid #2D4C6B; color: #FFFFFF;" class="px-4 py-2 text-start">State</th>
+            <th style="background-color: #2D4E6F; border: 1px solid #2D4C6B; color: #FFFFFF;" class="px-4 py-2 text-start">City</th>
+            <th style="background-color: #2D4E6F; border: 1px solid #2D4C6B; color: #FFFFFF;" class="px-4 py-2 text-start">Store</th>
+            <th style="background-color: #2D4E6F; border: 1px solid #2D4C6B; color: #FFFFFF;" class="px-4 py-2 text-start">Recommendation</th>
+            <th style="background-color: #2D4E6F; border: 1px solid #2D4C6B; color: #FFFFFF;" class="px-4 py-2 text-center"></th>
+        </tr>
+        
+        </thead>
+        <tbody class="bg-white">
+          <tr *ngFor="let item of filteredData; let i = index" class="hover:bg-gray-50">
+            <td class="px-4 py-2 text-gray-800">{{ item.qsr }}</td>
+            <td class="px-4 py-2 text-gray-800">{{ item.sales_channel }}</td>
+            <td class="px-4 py-2 text-gray-800">{{ item.country }}</td>
+            <td class="px-4 py-2 text-gray-800">{{ item.state }}</td>
+            <td class="px-4 py-2 text-gray-800">{{ item.city }}</td>
+            <td class="px-4 py-2 text-gray-800">{{ item.store }}</td>
+            <td class="border-bottom-black px-4 py-2 text-gray-800">{{ item.recommendation ? 'Yes' : 'No' }}</td>
+            <td class="px-4 py-2 text-center">
+              <input type="radio" name="selectedProduct" (change)="onSelectionChange(item.id)" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <actions></actions>
+    </div>
+  </div>
+
+
+  <edit-product *ngIf="productService.editDialogVisible$ | async"></edit-product>
+  

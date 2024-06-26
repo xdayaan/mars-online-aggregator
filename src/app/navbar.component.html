@@ -1,0 +1,61 @@
+<div class="fixed w-100 bg-white">
+    <div class="py-1"  style="background-color: #29333f;"></div>
+    <div class="d-flex justify-content-between align-items-center py-2 px-4">
+        <div class="text-center">
+            <p class="fs-1 fw-bold" style="color: #2D4C6Bff; margin: 0; padding: 0; line-height: 0.6;">MARS</p>
+            <p class="" style="margin: 0; padding: 0; font-size: 1vw;">ONLINE AGGREGATOR</p>
+        </div>
+        <div class="d-flex">
+            <div class="h-16 w-16"><img src="/user.jpg" width="80px" height="80px" class="h-16 w-16"/></div>
+            <div class="d-grid">
+                <div>Hello, cpg</div>
+                <div><button class="btn btn-dark p-2 rounded">Logout</button></div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="background-color: #29333f;" class="d-flex justify-content-between align-items-center py-2 px-4">
+        
+        <div class="d-flex justify-content-between w-100 align-items-center">
+            <div class="mx-2 relative text-white"><svg xmlns="http://www.w3.org/2000/svg" fill="#fff" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></div>
+            <div class="relative mx-2">
+                <select style="outline: none; border: none; padding-right: 20px; background-color: #29333f;" class="outline-none text-white custom-select" [(ngModel)]="selectedQsr">
+                    <option value="">Select QSR </option>
+                    <option *ngFor="let qsr of uniqueQsr" [value]="qsr">{{ qsr }}</option>
+                </select>
+            </div>
+            <div class="relative mx-2">
+                <select  style="outline: none; border: none; padding-right: 30px; background-color: #29333f;" class="text-white custom-select" [(ngModel)]="selectedSalesChannel">
+                    <option value="">Select Sales Channel </option>
+                    <option *ngFor="let salesChannel of uniqueSalesChannel" [value]="salesChannel">{{ salesChannel }}</option>
+                </select>
+            </div>
+            <div class="relative mx-2">
+                <select  style="outline: none; border: none; padding-right: 25px; background-color: #29333f;" class="text-white custom-select" [(ngModel)]="selectedCountry">
+                    <option value="">Select Country </option>
+                    <option *ngFor="let country of uniqueCountry" [value]="country">{{ country }}</option>
+                </select>
+            </div>
+            <div class="relative mx-2">
+                <select  style="outline: none; border: none; padding-right: 25px; background-color: #29333f;" class="pr-5 text-white custom-select" [(ngModel)]="selectedState">
+                    <option value="" class="pr-5">Select State&emsp;</option>
+                    <option *ngFor="let state of uniqueState" [value]="state">{{ state }}</option>
+                </select>
+            </div>
+            <div class="relative mx-2">
+                <select  style="outline: none; border: none; padding-right: 25px; background-color: #29333f;" class="text-white custom-select" [(ngModel)]="selectedCity">
+                    <option value="">Select City </option>
+                    <option *ngFor="let city of uniqueCity" [value]="city">{{ city }}</option>
+                </select>
+            </div>
+            <div class="relative mx-2">
+                <select  style="outline: none; border: none; padding-right: 25px; background-color: #29333f;" class="text-white custom-select" [(ngModel)]="selectedStore">
+                    <option value="">Select Store <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-360 280-560h400L480-360Z"/></svg></option>
+                    <option *ngFor="let store of uniqueStore" [value]="store">{{ store }}</option>
+                </select>
+            </div>
+            <div class="mx-2 relative"><button style="background-color: #1F8DF1; color: white;" class="btn p-2 rounded" (click)="applyFilters()">Search</button></div>
+        </div>
+       
+    </div>
+</div>
