@@ -7,6 +7,7 @@ export interface QSR {
     city: string;
     store: string;
     recommendation: boolean;
+    date: string;
 }
 
 export interface Item {
@@ -37,6 +38,7 @@ export const data: QSR[] = [
         city: "Mumbai",
         store: "Store001",
         recommendation: true,
+        date: "12-12-2024",
     },
     {
         id: 2,
@@ -47,6 +49,7 @@ export const data: QSR[] = [
         city: "Bangalore",
         store: "Store002",
         recommendation: false,
+        date: "12-12-2024",
     },
     {
         id: 3,
@@ -57,6 +60,7 @@ export const data: QSR[] = [
         city: "New Delhi",
         store: "Store003",
         recommendation: true,
+        date: "12-12-2024",
     },
     {
         id: 4,
@@ -67,6 +71,7 @@ export const data: QSR[] = [
         city: "Chennai",
         store: "Store004",
         recommendation: false,
+        date: "12-12-2024",
     },
     {
         id: 5,
@@ -77,6 +82,7 @@ export const data: QSR[] = [
         city: "Kolkata",
         store: "Store005",
         recommendation: true,
+        date: "12-12-2024",
     },
     {
         id: 6,
@@ -87,6 +93,7 @@ export const data: QSR[] = [
         city: "Hyderabad",
         store: "Store006",
         recommendation: false,
+        date: "12-12-2024",
     },
 ];
 

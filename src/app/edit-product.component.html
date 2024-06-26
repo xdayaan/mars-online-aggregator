@@ -4,20 +4,22 @@
         <div class="px-4 py-2">
           <div class=" border-none">
             <div class="row">
-              <div style="color: #29333F" class="col-2 fs-4"><strong>QSR</strong></div>
+              <div style="color: #29333F" class="col-1 fs-4"><strong>QSR</strong></div>
               <div style="color: #29333F"  class="col-2 fs-4"><strong>Sales Channel</strong></div>
-              <div style="color: #29333F"  class="col-2 fs-4"><strong>Country</strong></div>
-              <div style="color: #29333F"  class="col-2 fs-4"><strong>State</strong></div>
-              <div style="color: #29333F"  class="col-2 fs-4"><strong>City</strong></div>
-              <div style="color: #29333F"  class="col-2 fs-4"><strong>Store</strong></div>
+              <div style="color: #29333F"  class="col-1 fs-4"><strong>Country</strong></div>
+              <div style="color: #29333F"  class="col-1 fs-4"><strong>State</strong></div>
+              <div style="color: #29333F"  class="col-1 fs-4"><strong>City</strong></div>
+              <div style="color: #29333F"  class="col-1 fs-4"><strong>Store</strong></div>
+              <div style="color: #29333F"  class="col-lg float-right fs-4"><strong>Received Date</strong></div>
             </div>
             <div class="row">
-              <div style="color: #29333F"  class="col-2">{{ product?.qsr }}</div>
+              <div style="color: #29333F"  class="col-1">{{ product?.qsr }}</div>
               <div style="color: #29333F"  class="col-2">{{ product?.sales_channel }}</div>
-              <div style="color: #29333F"  class="col-2">{{ product?.country }}</div>
-              <div style="color: #29333F"  class="col-2">{{ product?.state }}</div>
-              <div  style="color: #29333F"  class="col-2">{{ product?.city }}</div>
-              <div style="color: #29333F"  class="col-2">{{ product?.store }}</div>
+              <div style="color: #29333F"  class="col-1">{{ product?.country }}</div>
+              <div style="color: #29333F"  class="col-1">{{ product?.state }}</div>
+              <div  style="color: #29333F"  class="col-1">{{ product?.city }}</div>
+              <div style="color: #29333F"  class="col-1">{{ product?.store }}</div>
+              <div style="color: #29333F"  class="col-lg float-right">{{ product?.date }}</div>
             </div>
           </div>
         </div>
@@ -122,20 +124,24 @@
                 <div class="px-4 py-2">
                     <div class="border-none">
                         <div class="row">
-                            <div class="col-2 fs-4"><strong>QSR</strong></div>
+                            <div class="col-1 fs-4"><strong>QSR</strong></div>
                             <div class="col-2 fs-4"><strong>Sales Channel</strong></div>
-                            <div class="col-2 fs-4"><strong>Country</strong></div>
-                            <div class="col-2 fs-4"><strong>State</strong></div>
-                            <div class="col-2 fs-4"><strong>City</strong></div>
-                            <div class="col-2 fs-4"><strong>Store</strong></div>
+                            <div class="col-1 fs-4"><strong>Country</strong></div>
+                            <div class="col-1 fs-4"><strong>State</strong></div>
+                            <div class="col-1 fs-4"><strong>City</strong></div>
+                            <div class="col-1 fs-4"><strong>Store</strong></div>
+                            <div class="col-1 fs-4"><strong>Category</strong></div>
+                            <div class="col-1 fs-4"><strong>Item</strong></div>
                         </div>
                         <div class="row">
-                            <div class="col-2">{{ product?.qsr }}</div>
+                            <div class="col-1">{{ product?.qsr }}</div>
                             <div class="col-2">{{ product?.sales_channel }}</div>
-                            <div class="col-2">{{ product?.country }}</div>
-                            <div class="col-2">{{ product?.state }}</div>
-                            <div class="col-2">{{ product?.city }}</div>
-                            <div class="col-2">{{ product?.store }}</div>
+                            <div class="col-1">{{ product?.country }}</div>
+                            <div class="col-1">{{ product?.state }}</div>
+                            <div class="col-1">{{ product?.city }}</div>
+                            <div class="col-1">{{ product?.store }}</div>
+                            <div class="col-1">{{ selectedCategory?.name }}</div>
+                            <div class="col-1">{{ selectedItem?.item }}</div>
                         </div>
                     </div>
                 </div>
