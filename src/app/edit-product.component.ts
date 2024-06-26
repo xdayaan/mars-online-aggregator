@@ -74,8 +74,12 @@ export class EditProductComponent implements OnInit {
   closeEditModal() {
     const modal = this.el.nativeElement.querySelector('#editModal');
     if (modal) {
+
+      const edit = this.el.nativeElement.querySelector('#container-edit');
       this.renderer.setStyle(modal, 'display', 'none');
       this.renderer.removeClass(modal, 'show');
+      this.renderer.setStyle(edit, 'display', 'none');
+    
     }
   }
 
