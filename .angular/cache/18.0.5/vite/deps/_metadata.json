@@ -1,0 +1,67 @@
+{
+  "hash": "fec16fc3",
+  "configHash": "b79dd152",
+  "lockfileHash": "882fed41",
+  "browserHash": "4bb3c141",
+  "optimized": {
+    "@angular/common": {
+      "src": "../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "f4846167",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "980004e4",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "d86f0d5b",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "3045941f",
+      "needsInterop": false
+    },
+    "bootstrap/dist/js/bootstrap.bundle.min": {
+      "src": "../../../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+      "file": "bootstrap_dist_js_bootstrap__bundle__min.js",
+      "fileHash": "d2de0205",
+      "needsInterop": true
+    },
+    "@angular/forms": {
+      "src": "../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
+      "file": "@angular_forms.js",
+      "fileHash": "8563b497",
+      "needsInterop": false
+    },
+    "rxjs": {
+      "src": "../../../../../node_modules/rxjs/dist/esm5/index.js",
+      "file": "rxjs.js",
+      "fileHash": "63f661d6",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-RGHNKMN2": {
+      "file": "chunk-RGHNKMN2.js"
+    },
+    "chunk-YOINYF2N": {
+      "file": "chunk-YOINYF2N.js"
+    },
+    "chunk-4D5Y63HG": {
+      "file": "chunk-4D5Y63HG.js"
+    },
+    "chunk-4J25ECOH": {
+      "file": "chunk-4J25ECOH.js"
+    },
+    "chunk-WKYGNSYM": {
+      "file": "chunk-WKYGNSYM.js"
+    }
+  }
+}
