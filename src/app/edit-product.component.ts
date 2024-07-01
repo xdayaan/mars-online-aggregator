@@ -4,6 +4,7 @@ import { QSR, Category, Item, categories } from '../data/data';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
+
 @Component({
   standalone: true,
   selector: 'edit-product',
@@ -31,8 +32,11 @@ export class EditProductComponent implements OnInit {
     });
   }
 
+  
+
   openPriorityModal() {
     const modal = this.el.nativeElement.querySelector('#priorityModal');
+    console.log("modal found")
     if (modal) {
       this.renderer.setStyle(modal, 'display', 'block');
       this.renderer.addClass(modal, 'show');
@@ -42,7 +46,7 @@ export class EditProductComponent implements OnInit {
   closePriorityModal() {
     const modal = this.el.nativeElement.querySelector('#priorityModal');
     if (modal) {
-      this.renderer.setStyle(modal, 'display', 'none');
+      this.renderer.setStyle(modal, 'display', 'none'); 
       this.renderer.removeClass(modal, 'show');
     }
     this.selectedCategory = null;
@@ -57,6 +61,8 @@ export class EditProductComponent implements OnInit {
   }
 
   setSelectedCategory(category: Category, item: Item | null = null): void {
+    console.log("Setting item")
+    console.log(item)
     this.selectedCategory = category;
     this.selectedItem = item;
     this.newPriority = item ? item.priority : category.priority;
@@ -76,12 +82,8 @@ export class EditProductComponent implements OnInit {
     if (modal) {
       this.renderer.setStyle(modal, 'display', 'none');
       this.renderer.removeClass(modal, 'show');
-
-        this.product = null;
-
-        this.productService.showEditDialog(false)
-      
-    
+      this.product = null;
+      this.productService.showEditDialog(false);
     }
   }
 
@@ -90,5 +92,18 @@ export class EditProductComponent implements OnInit {
       this.productService.updateItem(this.selectedItem);
     }
     this.closeEditModal();
+  }
+
+  getPriorityOptions(): number[] {
+    if (this.selectedItem) {
+      return this.generatePriorityOptions(this.selectedItem.priority, this.selectedCategory!.items.length);
+    } else if (this.selectedCategory) {
+      return this.generatePriorityOptions(this.selectedCategory.priority, this.categories.length);
+    }
+    return [];
+  }
+
+  private generatePriorityOptions(currentPriority: number, maxPriority: number): number[] {
+    return Array.from({ length: maxPriority - currentPriority + 1 }, (_, i) => i + currentPriority);
   }
 }

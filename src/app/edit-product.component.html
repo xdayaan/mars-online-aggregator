@@ -1,4 +1,8 @@
-<div class="container-edit" id="container-edit" *ngIf="product" style="background-color: #edf5fc;">
+
+
+
+<div class="container-edit" *ngIf="product" style="background-color: #edf5fc;">
+  <header></header>
     <div class="mb-4 " style="background-color: #D4D3Cf!important; border: none; border-radius: 0;">
       <div class="col-12">
         <div class="px-4 py-2">
@@ -94,31 +98,30 @@
       </div>
     </div>
   
-    <!-- Priority Change Modal -->
-    <div class="modal fade" *ngIf="selectedCategory" id="priorityModal" tabindex="-1" aria-labelledby="priorityModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title color-primary" id="priorityModalLabel">{{ selectedItem?.item || selectedCategory.name }}</h5>
-
-
-            <button type="button" class="btn-close" (click)="closePriorityModal()"></button>
+   <!-- Priority Change Modal -->
+  <div class="modal fade" *ngIf="selectedCategory" id="priorityModal" tabindex="-1" aria-labelledby="priorityModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title color-primary" id="priorityModalLabel">{{ selectedItem?.item || selectedCategory.name }}</h5>
+          <button type="button" class="btn-close" (click)="closePriorityModal()"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="newPriority" class="form-label">New Priority:</label>
+            <select id="newPriority" [(ngModel)]="newPriority" class="form-control">
+              <option *ngFor="let priority of getPriorityOptions()" [value]="priority">{{ priority }}</option>
+            </select>
           </div>
-          <div class="modal-body">
-            <div class="mb-3">
-              <label for="newPriority" class="form-label">New Priority:</label>
-              <input type="number" id="newPriority" [(ngModel)]="newPriority" class="form-control" min="1" max="10">
-            </div>
-          </div>
-          <div class="modal-footer">
-            <!-- <button type="button" class="btn btn-secondary" (click)="closePriorityModal()">Cancel</button> -->
-            <button type="button" class="custom-button" (click)="savePriority()">Save</button>
-          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="custom-button" (click)="savePriority()">Save</button>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="fade edit-modal" aria-hidden="true" id="editModal" *ngIf="selectedItem">
+    <div class="fade edit-modal" aria-hidden="false" id="editModal" *ngIf="selectedItem">
         <div class="mb-4" style="background-color: #f1f2f3; border: none; border-radius: 0;">
             <div class="col-12">
                 <div class="px-4 py-2">
