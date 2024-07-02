@@ -3,6 +3,7 @@ import { ProductService } from './product.service';
 import { QSR, Category, Item, categories } from '../data/data';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Navbar } from './navbar.component';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { CommonModule } from '@angular/common';
   selector: 'edit-product',
   templateUrl: './edit-product.component.html',
   styleUrls: ['./edit-product.component.css'],
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, Navbar],
 })
 export class EditProductComponent implements OnInit {
   product: QSR | null = null;

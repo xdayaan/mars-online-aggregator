@@ -2,7 +2,7 @@
 
 
 <div class="container-edit" *ngIf="product" style="background-color: #edf5fc;">
-  <header></header>
+  <navbar></navbar>
     <div class="mb-4 " style="background-color: #D4D3Cf!important; border: none; border-radius: 0;">
       <div class="col-12">
         <div class="px-4 py-2">
@@ -122,7 +122,9 @@
   </div>
 
     <div class="fade edit-modal" aria-hidden="false" id="editModal" *ngIf="selectedItem">
+      <navbar></navbar>
         <div class="mb-4" style="background-color: #f1f2f3; border: none; border-radius: 0;">
+          
             <div class="col-12">
                 <div class="px-4 py-2">
                     <div class="border-none">

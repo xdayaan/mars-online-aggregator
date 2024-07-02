@@ -10,11 +10,12 @@
 .edit-modal {
   background-color: #ffffff;
   position: fixed;
-  top: 20%;
+  top: 0;
   left: 0;
   bottom: 0;
   height: 100%;
   width: 0;
+  overflow-y: auto;
 }
 
 .custom-edit-container {
