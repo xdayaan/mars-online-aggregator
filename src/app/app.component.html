@@ -1,2 +1,9 @@
-<navbar></navbar>
-<product></product>
+<!-- app.component.html -->
+<div *ngIf="login">
+    <app-login (loginSuccess)="onLoginSuccess($event)"></app-login>
+  </div>
+  <div *ngIf="app">
+    <navbar></navbar>
+    <product></product>
+  </div>
+  

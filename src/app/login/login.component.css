@@ -1,0 +1,8 @@
+/* Custom styles for the login component */
+.vh-100 {
+    min-height: 100vh;
+  }
+  .card {
+    border-radius: 10px;
+  }
+  
